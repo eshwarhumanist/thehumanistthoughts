@@ -1,0 +1,15 @@
+PERSONAL BLOG
+
+OBJECTIVE: Create a html page, which is a personal blog which is to be used for uploading the various articles personally written by me. 
+
+NAME: The http name of the website of the blog should be "thehumaniststthoughts". 
+
+HEADING: The heading of the blog in the home page must display - THE HUMANIST THOUGHTS
+
+NEEDS:
+1. The blog must have a admin access, where only the admin can upload, edit and delete the articles uploaded in the blog. The admin is me. 
+2. The articles in the blog must be shareable with the public. Whoever has the link of the blog page, can view the article and offer thier comments on the space provided below. 
+3. The public cannot edit or delete the article seen. They can only offer their comments in the space below. 
+4. The hom epage of the blog must look visually attractive. It should use sober color pattern only and not very fancy vibrant colors. 
+5. The blog will be used to upload articles which speak about contemporary socio-political issues which are serious in nature. Hence, the backdrop of the blog should be complimnetary with the nature of issues discussed in the blog.
+6. The blog must contain a tab on the left of the page, where sub groupings of articles can be made, based on the genre of the articles.  

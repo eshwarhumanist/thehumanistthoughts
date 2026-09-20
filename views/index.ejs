@@ -1,0 +1,32 @@
+<%- include('partials/head', { title: 'Home' }) %>
+
+<div class="layout">
+  <%- include('partials/sidebar') %>
+
+  <main class="content">
+    <% if (articles.length === 0) { %>
+      <div class="empty-state">
+        <p>No articles have been published yet<% if (activeGenre) { %> in this genre<% } %>.</p>
+      </div>
+    <% } else { %>
+      <% articles.forEach(function(a) { %>
+        <div class="article-card">
+          <% if (a.cover_image) { %>
+            <a href="/article/<%= a.slug %>"><img class="cover" src="<%= a.cover_image %>" alt="<%= a.title %>"></a>
+          <% } %>
+          <div class="card-body">
+            <div class="meta">
+              <% if (a.genre_name) { %><span class="genre-tag"><%= a.genre_name %></span><% } %>
+              <%= new Date(a.created_at).toDateString() %>
+            </div>
+            <h3><a href="/article/<%= a.slug %>"><%= a.title %></a></h3>
+            <% if (a.summary) { %><p class="summary"><%= a.summary %></p><% } %>
+            <a href="/article/<%= a.slug %>" class="btn-outline btn">Read Article</a>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </main>
+</div>
+
+<%- include('partials/foot') %>

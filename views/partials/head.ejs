@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title + ' | The Humanist Thoughts' : 'The Humanist Thoughts' %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>The Humanist Thoughts</h1>
+  <p class="tagline">Reflections on contemporary socio-political life</p>
+</header>
+<nav class="top-nav">
+  <a href="/">Home</a>
+  <% if (isAdmin) { %>
+    <a href="/admin">Admin Dashboard</a>
+    <a href="/admin/genres">Manage Genres</a>
+    <form method="POST" action="/logout" style="display:inline;margin:0;">
+      <button type="submit" style="background:none;border:none;color:#f4f1ec;text-transform:uppercase;letter-spacing:0.05em;font-size:0.85rem;cursor:pointer;padding:0;">Logout</button>
+    </form>
+  <% } else { %>
+    <a href="/login">Admin Login</a>
+  <% } %>
+</nav>
