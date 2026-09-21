@@ -210,6 +210,17 @@ article.full-article .body-text h3 {
   margin-top: 2.2rem;
 }
 
+article.full-article .signature {
+  margin: 2rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  color: var(--accent);
+  text-align: right;
+  max-width: 68ch;
+}
+
 .btn {
   display: inline-block;
   background: var(--accent);
