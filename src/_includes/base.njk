@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | The Humanist Thoughts</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand-link" href="/"><h1>The Humanist Thoughts</h1></a>
+  <p class="tagline">Reflections on contemporary socio-political discourse</p>
+  <p class="quote">&ldquo;The truth shall make you free, but first it shall make you angry.&rdquo;&nbsp;&mdash;&nbsp;Robert&nbsp;Green&nbsp;Ingersoll</p>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>Genres</h2>
+    <ul>
+      <li><a href="/" class="{% if not genre %}active{% endif %}">All Articles</a></li>
+      {% for g in genres %}
+        <li><a href="/genre/{{ g | slugify }}/" class="{% if genre == g %}active{% endif %}">{{ g }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+
+  <main class="content">
+    {{ content | safe }}
+  </main>
+</div>
+
+<footer class="site-footer">
+  &copy; {{ currentYear }} The Humanist Thoughts. All articles are the personal work of the author.
+</footer>
+</body>
+</html>

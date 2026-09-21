@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<article class="full-article">
+  {% if cover %}
+    <img class="cover" src="{{ cover }}" alt="{{ title }}">
+  {% endif %}
+  <div class="meta">
+    {% if genre %}<span class="genre-tag">{{ genre }}</span>{% endif %}
+    Published {{ date | dateReadable }}
+  </div>
+  <h2>{{ title }}</h2>
+  <div class="body-text">
+    {{ content | safe }}
+  </div>
+</article>

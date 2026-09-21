@@ -1,9 +1,4 @@
 node_modules/
-data/*.db
-data/*.db-journal
-data/*.db-wal
-data/*.db-shm
-data/sessions.sqlite
-.env
-public/uploads/*
-!public/uploads/.gitkeep
+_site/
+eleventy-out.log
+eleventy-err.log

@@ -1,9 +1,0 @@
-<aside class="sidebar">
-  <h2>Genres</h2>
-  <ul>
-    <li><a href="/" class="<%= !activeGenre ? 'active' : '' %>">All Articles</a></li>
-    <% genres.forEach(function(g) { %>
-      <li><a href="/?genre=<%= g.slug %>" class="<%= activeGenre === g.slug ? 'active' : '' %>"><%= g.name %></a></li>
-    <% }) %>
-  </ul>
-</aside>

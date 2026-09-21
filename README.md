@@ -1,46 +1,44 @@
 # The Humanist Thoughts
 
-A personal blog for publishing articles on contemporary socio-political issues, with admin-only publishing and public commenting.
+A personal, static blog for publishing articles on contemporary socio-political issues. Built with [Eleventy](https://www.11ty.dev/) and hosted for free on GitHub Pages.
 
-## Features
+## How this works
 
-- **Admin-only publishing**: only the logged-in admin can create, edit, and delete articles.
-- **Public sharing & comments**: anyone with a link can read an article and leave a comment; the public cannot edit or delete articles.
-- **Genre sidebar**: articles can be grouped into genres (Politics, Society, Economy, Human Rights, Environment, Opinion, or your own), shown as a left-side navigation tab.
-- **Sober, serious visual design**: muted earth-tone palette, serif typography — intentionally understated to suit weighty subject matter.
-- **Cover images**: optional image upload per article.
+- Every article is a plain text file (Markdown) in `src/articles/`.
+- Running the build turns those files into a full website in `_site/`.
+- Pushing to GitHub automatically rebuilds and republishes the site via GitHub Actions — no server to run, no database, free forever.
+- There is no login or admin dashboard: since only you have push access to the GitHub repository, you are effectively the only one who can publish, edit, or remove articles. The public can only read.
 
-## Requirements
+## Publishing a new article
 
-- Node.js 22.5+ (uses the built-in `node:sqlite` module — no external database server or native build tools required).
+```
+npm run new-article
+```
 
-## First-time setup
+This asks for a title, genre, and short summary, then creates a new Markdown file for you in `src/articles/`. Open that file and write the article body in Markdown below the existing front matter. Then:
+
+```
+npm run build
+git add .
+git commit -m "Add article: <title>"
+git push
+```
+
+A minute or two after pushing, the live site updates automatically.
+
+## Genres
+
+The sidebar genre list lives in `src/_data/genres.js`. Add, remove, or rename genres there — just make sure the `genre:` value in each article's front matter matches one of the names in that list exactly, or it won't show up under any sidebar filter.
+
+## Local preview
 
 ```
 npm install
-npm run init-admin
-```
-
-`npm run init-admin` will prompt you to choose an admin username and password (this is your only login — the blog has a single admin, as specified).
-
-## Running the blog
-
-```
 npm start
 ```
 
-Then open http://localhost:3000 in your browser.
+Opens a local preview at http://localhost:8080 that live-reloads as you edit.
 
-- Visit `/login` to sign in as admin.
-- Once logged in, use **Admin Dashboard** in the top nav to create, edit, or delete articles, and **Manage Genres** to add/remove genre categories.
-- Log out via the **Logout** link in the top nav.
+## Design
 
-## Notes on configuration
-
-- `.env` holds `SESSION_SECRET` and `PORT`. **Change `SESSION_SECRET` to a long random string before making the site public.**
-- The SQLite database file lives at `data/blog.db`; uploaded cover images are stored in `public/uploads/`. Back these up periodically.
-- Admin sessions are kept in memory, so restarting the server will require logging in again.
-
-## Deploying so others can view your articles
-
-Running `npm start` only serves the blog on your own machine (`localhost`). To let others open your article links, host it on a small server or platform that runs Node.js (e.g. a VPS, Render, Railway, or similar), set `SESSION_SECRET` there, and run `npm install && npm start` on that host.
+The color palette, fonts, and layout live in `public/css/style.css` and the templates in `src/_includes/`.
