@@ -195,7 +195,13 @@ article.full-article h2 {
   margin-top: 0;
   text-wrap: balance;
 }
-article.full-article .body-text { font-size: 1.08rem; max-width: 68ch; }
+article.full-article .body-text {
+  font-size: 1.08rem;
+  max-width: 68ch;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
 article.full-article .body-text p { margin: 0 0 1.3rem; }
 article.full-article .body-text h2,
 article.full-article .body-text h3 {
