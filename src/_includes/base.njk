@@ -17,9 +17,9 @@
   <aside class="sidebar">
     <h2>Genres</h2>
     <ul>
-      <li><a href="{{ '/' | url }}" class="{% if not genre %}active{% endif %}">All Articles</a></li>
+      <li><a href="{{ '/' | url }}" class="{% if not genre %}active{% endif %}">All Articles <span class="count">{{ collections.articles.length }}</span></a></li>
       {% for g in genres %}
-        <li><a href="{{ ('/genre/' + (g | slugify) + '/') | url }}" class="{% if genre == g %}active{% endif %}">{{ g }}</a></li>
+        <li><a href="{{ ('/genre/' + (g | slugify) + '/') | url }}" class="{% if genre == g %}active{% endif %}">{{ g }} <span class="count">{{ collections.articles | byGenre(g) | length }}</span></a></li>
       {% endfor %}
     </ul>
   </aside>
