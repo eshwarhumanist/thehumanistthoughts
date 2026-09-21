@@ -3,7 +3,7 @@ pagination:
   data: genres
   size: 1
   alias: genre
-permalink: "/genre/{{ genre | slugify }}/"
+permalink: "genre/{{ genre | slugify }}/index.html"
 layout: base.njk
 eleventyComputed:
   title: "{{ genre }}"
@@ -17,16 +17,16 @@ eleventyComputed:
   {% for article in matching %}
     <div class="article-card">
       {% if article.data.cover %}
-        <a href="{{ article.url }}"><img class="cover" src="{{ article.data.cover }}" alt="{{ article.data.title }}"></a>
+        <a href="{{ article.url | url }}"><img class="cover" src="{{ article.data.cover }}" alt="{{ article.data.title }}"></a>
       {% endif %}
       <div class="card-body">
         <div class="meta">
           <span class="genre-tag">{{ article.data.genre }}</span>
           {{ article.data.date | dateReadable }}
         </div>
-        <h3><a href="{{ article.url }}">{{ article.data.title }}</a></h3>
+        <h3><a href="{{ article.url | url }}">{{ article.data.title }}</a></h3>
         {% if article.data.summary %}<p class="summary">{{ article.data.summary }}</p>{% endif %}
-        <a href="{{ article.url }}" class="btn btn-outline">Read Article</a>
+        <a href="{{ article.url | url }}" class="btn btn-outline">Read Article</a>
       </div>
     </div>
   {% endfor %}

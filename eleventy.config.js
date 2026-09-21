@@ -28,6 +28,7 @@ module.exports = function (eleventyConfig) {
   });
 
   return {
+    pathPrefix: "/thehumanistthoughts/",
     dir: {
       input: "src",
       includes: "_includes",

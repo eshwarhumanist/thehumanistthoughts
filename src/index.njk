@@ -10,16 +10,16 @@ title: Home
   {% for article in collections.articles %}
     <div class="article-card">
       {% if article.data.cover %}
-        <a href="{{ article.url }}"><img class="cover" src="{{ article.data.cover }}" alt="{{ article.data.title }}"></a>
+        <a href="{{ article.url | url }}"><img class="cover" src="{{ article.data.cover }}" alt="{{ article.data.title }}"></a>
       {% endif %}
       <div class="card-body">
         <div class="meta">
           {% if article.data.genre %}<span class="genre-tag">{{ article.data.genre }}</span>{% endif %}
           {{ article.data.date | dateReadable }}
         </div>
-        <h3><a href="{{ article.url }}">{{ article.data.title }}</a></h3>
+        <h3><a href="{{ article.url | url }}">{{ article.data.title }}</a></h3>
         {% if article.data.summary %}<p class="summary">{{ article.data.summary }}</p>{% endif %}
-        <a href="{{ article.url }}" class="btn btn-outline">Read Article</a>
+        <a href="{{ article.url | url }}" class="btn btn-outline">Read Article</a>
       </div>
     </div>
   {% endfor %}
