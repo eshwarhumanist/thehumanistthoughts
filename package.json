@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy",
-    "new-article": "node scripts/new-article.js"
+    "new-article": "node scripts/new-article.js",
+    "publish": "node scripts/publish.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
